@@ -1,13 +1,18 @@
 service: aws-nodejs-serverless
-
 provider:
   name: aws
   runtime: nodejs12.x
-
 functions:
   hello:
     handler: handler.hello
-   events:
+    events:
      - http:
-         path: users/create
+         path: /
          method: get
+  imageResizer:
+    handler: handler.imageResizer
+    events:
+      - http:
+          path: /imageResizer
+          method: get
+
